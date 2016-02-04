@@ -18,7 +18,6 @@ http.createServer((request, response) => {
 
     // Handle index serve for direcotry
     if(fs.statSync(filename).isDirectory()){ filename += 'index.html'; }
-    console.log('filename:', filename);
   })
 
   fs.readFile(filename, "binary", function(err, file) {
