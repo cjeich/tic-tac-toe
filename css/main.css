@@ -99,17 +99,18 @@ h1.site-title {
   font-weight: 100;
   font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
   text-align: center;
-  margin: .75rem 0 .5rem;
+  margin: 0 0 .5rem;
 }
 
 p.subtitle {
   font-size: 1.75rem;
   font-family: 'Shadows Into Light Two', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
-  border-top: 2px solid #ccc;
-  padding-top: .5em;
+  border-top: 2px solid #E27589;
+  padding: .5em;
   margin-top: -.5rem;
   margin-bottom: 2rem;
+  background: #FBFBF9;
 }
 
 #container{
@@ -157,6 +158,21 @@ body.user-o .cell:hover::after {
   background-size: contain;
 }
 
+.cell:hover{
+  cursor: pointer;
+}
+
+.cell.has-x:hover,
+.cell.has-o:hover {
+  cursor: default;
+}
+
+/* Hide preview if cell already marked */
+body.user-x .cell.has-o:hover::after,
+body.user-o .cell.has-x:hover::after {
+  background:transparent;
+}
+
 .cell:hover::after {
   content: "";
   position: absolute;
@@ -166,6 +182,43 @@ body.user-o .cell:hover::after {
   left: 0;
   opacity: .25;
 }
+
+.player-info-row {
+  background-color: #f9f9f5;
+  font-family: 'Shadows Into Light Two', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: .35em 1em;
+  margin: .5em 0 1.5em;
+  border-radius: 5px;
+}
+
+.player-info-row b {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.user-label {
+  display: inline-block;
+  margin: 0 .5em;
+  padding: .1rem .5em;
+  background-color: #fff;
+  border-radius: 4px;
+
+}
+
+.user-label > input {
+  position: relative;
+  top: -.15rem;
+}
+
+.user-label > .player-letter {
+  font-weight: 100;
+  font-size: 1.5em;
+  display: inline-block;
+  margin-left: .25em;
+}
+
+.user-label > .player-letter.player-x {color: #FA3438;}
+.user-label > .player-letter.player-o { color: #000; }
 
 
 

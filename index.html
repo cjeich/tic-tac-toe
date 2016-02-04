@@ -19,8 +19,26 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   <div id="container">
+  <header>
     <h1 class="site-title">TicTacToe!</h1>
-    <p class="subtitle">A  <abbr title="Document Object Model">DOM</abbr> Event Handler Demo
+    <p class="subtitle">
+      A DOM Event Handler Demo
+    </p>
+  </header>
+  
+    <div class="player-info-row">
+      <div class="player-toggle">
+        <b>Player:  </b>
+        <label class="user-label" for="current-player-x">
+          <input type="radio" id="current-player-x" name="current-player" value="X" checked />
+          <span class="player-letter player-x">X</span>
+        </label>
+        <label class="user-label" for="current-player-o">
+          <input type="radio" id="current-player-o" name="current-player" value="O"/>
+          <span class="player-letter player-o">O</span>
+        </label>
+      </div>
+    </div>
 
     <div class="board">
       <div class="row">
