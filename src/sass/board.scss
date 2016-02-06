@@ -1,0 +1,137 @@
+// Variables
+//------------------------------------------------------------------------------
+$bg-highlight: #fbfbf9;
+$red-highlight: #e27589;
+$grey-border: #ccc;
+$player-x: #fa3438;
+$player-o: #000;
+
+// Header
+//------------------------------------------------------------------------------
+header {
+  .site-title {
+    font-size: 5rem;
+    font-weight: 100;
+    font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
+    text-align: center;
+    margin: 0 0 .5rem;
+  }
+
+  .subtitle {
+    background: $bg-highlight;
+    border-top: 2px solid $red-highlight;
+    font-size: 1.75rem;
+    font-family: 'Shadows Into Light Two', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-top: -.5rem;
+    margin-bottom: 2rem;
+    padding: .5em;
+    text-align: center;
+  }
+}
+
+.container{
+  overflow: auto;
+  margin: 2em auto;
+  width: 90%;
+  min-width: 500px;
+  max-width: 1050px;
+}
+
+.board {
+  height: 600px;
+
+   & > .row {
+    height: 200px;
+    border-bottom: 3px solid $grey-border;
+    overflow: auto;
+    float: left;
+    width: 100%;
+
+    &:last-child { border: none; }
+
+    .cell {
+      display: inline-block;
+      width: calc(32.33% - 3px);
+      height: 200px;
+      border-left: 3px solid $grey-border;
+      float: left;
+      position: relative;
+
+      &:first-child { border: none; }
+    }
+  }
+}
+
+.has-x,
+.user-x .cell:hover::after {
+  background: url('../img/x.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+.has-o,
+.user-o .cell:hover::after {
+  background: url('../img/o.jpg') center center no-repeat;
+  background-size: contain;
+}
+
+.cell:hover{
+  cursor: pointer;
+}
+
+.cell.has-x:hover,
+.cell.has-o:hover {
+  cursor: default;
+}
+
+/* Hide preview if cell already marked */
+body.user-x .cell.has-o:hover::after,
+body.user-o .cell.has-x:hover::after {
+  background:transparent;
+}
+
+.cell:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: .25;
+}
+
+.player-info-row {
+  background-color: #f9f9f5;
+  font-family: 'Shadows Into Light Two', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: .35em 1em;
+  margin: .5em 0 1.5em;
+  border-radius: 5px;
+}
+
+.player-info-row b {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.user-label {
+  display: inline-block;
+  margin: 0 .5em;
+  padding: .1rem .5em;
+  background-color: #fff;
+  border-radius: 4px;
+
+}
+
+.user-label > input {
+  position: relative;
+  top: -.15rem;
+}
+
+.user-label > .player-letter {
+  font-weight: 100;
+  font-size: 1.5em;
+  display: inline-block;
+  margin-left: .25em;
+}
+
+.user-label > .player-letter.player-x {color: $player-x;}
+.user-label > .player-letter.player-o { color: $player-o; }
